@@ -1,0 +1,7 @@
+# Tracing options for the CHOOSE.diagram plug-in
+
+# Common issues
+CHOOSE.diagram/debug=false
+
+# Visual IDs
+CHOOSE.diagram/debug/visualID=false

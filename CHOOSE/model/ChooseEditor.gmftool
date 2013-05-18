@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="chooseeditorPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Elements">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Connector"
+          description="When connecting 2 nodes, the Connector gives a list of all possible connections between the nodes. When draging the Connector from a node to the canvas, a list with possible connections to new elements is given.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Connection.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Goal"
+          description="An end state that is wished by stakeholders, and that is operationalized by Operations. Can have Conflict relations with other Goals.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Goal.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Refinement"
+          description="Connects a 1 Supergoal with one  to many Subgoals. When a Supergoal is assigned to a Refinement, only Subgoal connections are further allowed.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Refinement.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Actor"
+          description="An entity that is capable of performing Operations, be Assigned to- or Wish a goal, and can Monitor/Control Objects.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Actor.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="> Human Actor"
+          description="Type of Actor: a person, or group of persons. Capable of performing Roles, and having Supervision relations with other Human Actors.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/HumanActor.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="> Role"
+          description="Type of Actor: A function entailing the responsibility for the performance of specific Operations, to which a Human Actor can be assigned who Performs the Role.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Role.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="> Software Actor"
+          description="Type of Actor: (part of) A software system that encapulates its behavior and data to do Performance of Operations.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/SoftwareActor.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="> Device"
+          description="Type of Actor: A hardware resource or physical equipment that is able to do Performance of Operations.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Device.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Operation"
+          description="Internal behavior that needs Objects as Input and produces Objects as Output, in order to Operationalize Goals. Can be a Process or Project.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Operation.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="> Process"
+          description="Type of Operation: A repetitive activity with the objective of carrying out work. Intended to produce a defined set of products or business services.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Process.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="> Project"
+          description="Type of Operation: A temporary endeavor with a defined start and end date undertaken to create a unique product, service or result.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Project.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Object"
+          description="A passive element that has relevance from a business, information or technological perspective. May or may not physically exist.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Object.gif"
+            bundle="CHOOSE.edit"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/CHOOSE/src" modelPluginID="CHOOSE" modelName="ChooseEditor"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>ChooseEditor.ecore</foreignModel>
+  <genPackages prefix="Chooseeditor" disposableProviderFactory="true" ecorePackage="ChooseEditor.ecore#/">
+    <genClasses ecoreClass="ChooseEditor.ecore#//Diagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Diagram/Goals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Diagram/Refinements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Diagram/Actors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Diagram/Objects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Diagram/Operations"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Goal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//Goal/Name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//Goal/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/Conflicts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/Conflicted"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/AssignedTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/WishedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/OperationalizedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/ConcernsObjects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/Or"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Goal/And"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Refinement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Refinement/Supergoal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Refinement/Subgoals"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//ActorContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//ActorContainer/Name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//ActorContainer/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/Assignments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/Wishes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/Includes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/PartOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/ResponsibleFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/AccountableFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/ConsultedFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/InformedFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/Controls"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//ActorContainer/Monitors"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//OperationContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//OperationContainer/Name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//OperationContainer/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Operationalizes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Responsible"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Accountable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Consult"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Inform"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Output"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/PartOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//OperationContainer/Includes"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Object">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//Object/Name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ChooseEditor.ecore#//Object/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/ConcernsGoals"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/ControlledBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/MonitoredBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/InputFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/OutputOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/Associates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/Associated"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/Specialization"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/SpecializedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/Includes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Object/PartOf"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Actor"/>
+    <genClasses ecoreClass="ChooseEditor.ecore#//HumanActor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//HumanActor/Supervisees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//HumanActor/Supervisors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//HumanActor/Performs"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Role">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ChooseEditor.ecore#//Role/PerformedBy"/>
+    </genClasses>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Device"/>
+    <genClasses ecoreClass="ChooseEditor.ecore#//SoftwareActor"/>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Operation"/>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Process"/>
+    <genClasses ecoreClass="ChooseEditor.ecore#//Project"/>
+  </genPackages>
+</genmodel:GenModel>

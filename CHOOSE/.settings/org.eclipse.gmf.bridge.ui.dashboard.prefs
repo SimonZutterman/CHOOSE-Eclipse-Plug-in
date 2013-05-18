@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/CHOOSE/model/ChooseEditor.genmodel
+gmf_dashboard/domainModel=platform\:/resource/CHOOSE/model/ChooseEditor.ecore
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/CHOOSE/model/ChooseEditor.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/CHOOSE/model/ChooseEditor.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/CHOOSE/model/ChooseEditor.gmftool

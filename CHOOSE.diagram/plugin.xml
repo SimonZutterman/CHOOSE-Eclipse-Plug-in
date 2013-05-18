@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="choose_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="choose_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="CHOOSE.diagram.part.ChooseEditorDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/ChooseeditorDiagramFile.gif"
+         extensions="choose_diagram"
+         default="true"
+         class="CHOOSE.diagram.part.ChooseEditorDiagramEditor"
+         matchingStrategy="CHOOSE.diagram.part.ChooseEditorMatchingStrategy"
+         contributorClass="CHOOSE.diagram.part.ChooseEditorDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="CHOOSE.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/ChooseeditorDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="CHOOSE.diagram.part.ChooseEditorCreationWizard"
+  	     id="CHOOSE.diagram.part.ChooseEditorCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="CHOOSE.diagram.InitDiagram"
+            nameFilter="*.choose"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="CHOOSE.diagram.part.ChooseEditorInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="CHOOSE.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="ChooseEditorPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="CHOOSE.diagram.part.ChooseEditorDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="ChooseEditorPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="CHOOSE.diagram.part.ChooseEditorDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="ChooseEditorRender">
+         <Priority name="Lowest"/>
+         <ViewId id="CHOOSE.diagram.part.ChooseEditorDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="CHOOSE.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="CHOOSE.diagram.general"
+            name="%prefpage.CHOOSE.diagram.general"
+            class="CHOOSE.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="CHOOSE.diagram.appearance"
+            name="%prefpage.CHOOSE.diagram.appearance"
+            category="CHOOSE.diagram.general"
+            class="CHOOSE.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="CHOOSE.diagram.connections"
+            name="%prefpage.CHOOSE.diagram.connections"
+            category="CHOOSE.diagram.general"
+            class="CHOOSE.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="CHOOSE.diagram.printing"
+            name="%prefpage.CHOOSE.diagram.printing"
+            category="CHOOSE.diagram.general"
+            class="CHOOSE.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="CHOOSE.diagram.rulersAndGrid"
+            name="%prefpage.CHOOSE.diagram.rulersAndGrid"
+            category="CHOOSE.diagram.general"
+            class="CHOOSE.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="CHOOSE.diagram"
+            labelProvider="CHOOSE.diagram.sheet.ChooseEditorSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="CHOOSE.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="CHOOSE.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="CHOOSE.diagram.sheet.ChooseEditorPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="CHOOSE.diagram.navigator.ChooseEditorAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="CHOOSE.diagram.providers.ChooseEditorViewProvider">
+         <Priority name="Lowest"/>
+         <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
+            <method name="getType()" value="choose,choose_diagram"/>
+         </object>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="ChooseEditor"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4018,4012,4013,4014,4015,4011,4017,4016,4019,4020,4021,4022,4023,4024,4025,4027,4026,4028,4029,4030,4031,4032,4033,4038,4034,4036,4037,4035,4039,4040,4041,4042,4043,4044"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="CHOOSE.diagram.providers.ChooseEditorEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="ChooseEditor"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4018,4012,4013,4014,4015,4011,4017,4016,4019,4020,4021,4022,4023,4024,4025,4027,4026,4028,4029,4030,4031,4032,4033,4038,4034,4036,4037,4035,4039,4040,4041,4042,4043,4044"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003,5004,5005,5006,5007,5008,5009,5010"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="CHOOSE.diagram.providers.ChooseEditorModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="CHOOSE.diagram.edit.parts.DiagramEditPart" id="Diagram_1000"/>
+         <object class="CHOOSE.diagram.edit.parts.GoalEditPart" id="Goal_2001"/>
+         <object class="CHOOSE.diagram.edit.parts.RefinementEditPart" id="Refinement_2002"/>
+         <object class="CHOOSE.diagram.edit.parts.ActorEditPart" id="Actor_2003"/>
+         <object class="CHOOSE.diagram.edit.parts.HumanActorEditPart" id="HumanActor_2004"/>
+         <object class="CHOOSE.diagram.edit.parts.RoleEditPart" id="Role_2005"/>
+         <object class="CHOOSE.diagram.edit.parts.SoftwareActorEditPart" id="SoftwareActor_2006"/>
+         <object class="CHOOSE.diagram.edit.parts.DeviceEditPart" id="Device_2007"/>
+         <object class="CHOOSE.diagram.edit.parts.OperationEditPart" id="Operation_2008"/>
+         <object class="CHOOSE.diagram.edit.parts.ProcessEditPart" id="Process_2009"/>
+         <object class="CHOOSE.diagram.edit.parts.ProjectEditPart" id="Project_2010"/>
+         <object class="CHOOSE.diagram.edit.parts.ObjectEditPart" id="Object_2011"/>
+         <context elements="Diagram_1000,Goal_2001,Refinement_2002,Actor_2003,HumanActor_2004,Role_2005,SoftwareActor_2006,Device_2007,Operation_2008,Process_2009,Project_2010,Object_2011,"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="CHOOSE.diagram.providers.ChooseEditorIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="CHOOSE.diagram.providers.ChooseEditorParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="CHOOSE.diagram.providers.ChooseEditorShortcutsDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
+         </object>
+         <context decoratorTargets="generated-top-nodes"/>
+      </decoratorProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Diagram_1000"
+               name="%metatype.name.Diagram_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Diagram"
+               edithelper="CHOOSE.diagram.edit.helpers.DiagramEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Goal_2001"
+               name="%metatype.name.Goal_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Goal"
+               edithelper="CHOOSE.diagram.edit.helpers.GoalEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Refinement_2002"
+               name="%metatype.name.Refinement_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Refinement"
+               edithelper="CHOOSE.diagram.edit.helpers.RefinementEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Actor_2003"
+               name="%metatype.name.Actor_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Actor"
+               edithelper="CHOOSE.diagram.edit.helpers.ActorEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.HumanActor_2004"
+               name="%metatype.name.HumanActor_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="HumanActor"
+               edithelper="CHOOSE.diagram.edit.helpers.HumanActorEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Role_2005"
+               name="%metatype.name.Role_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Role"
+               edithelper="CHOOSE.diagram.edit.helpers.RoleEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.SoftwareActor_2006"
+               name="%metatype.name.SoftwareActor_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SoftwareActor"
+               edithelper="CHOOSE.diagram.edit.helpers.SoftwareActorEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Device_2007"
+               name="%metatype.name.Device_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Device"
+               edithelper="CHOOSE.diagram.edit.helpers.DeviceEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Operation_2008"
+               name="%metatype.name.Operation_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Operation"
+               edithelper="CHOOSE.diagram.edit.helpers.OperationEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Process_2009"
+               name="%metatype.name.Process_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Process"
+               edithelper="CHOOSE.diagram.edit.helpers.ProcessEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Project_2010"
+               name="%metatype.name.Project_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Project"
+               edithelper="CHOOSE.diagram.edit.helpers.ProjectEditHelper">
+            <param name="semanticHint" value="2010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <metamodelType
+               id="CHOOSE.diagram.Object_2011"
+               name="%metatype.name.Object_2011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Object"
+               edithelper="CHOOSE.diagram.edit.helpers.ObjectEditHelper">
+            <param name="semanticHint" value="2011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalAssignedTo_4001"
+               name="%metatype.name.GoalAssignedTo_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4001"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalWishedBy_4002"
+               name="%metatype.name.GoalWishedBy_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalOr_4003"
+               name="%metatype.name.GoalOr_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4003"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalAnd_4004"
+               name="%metatype.name.GoalAnd_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4004"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalConflicted_4005"
+               name="%metatype.name.GoalConflicted_4005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4005"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalConflicts_4006"
+               name="%metatype.name.GoalConflicts_4006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4006"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalConcernsObjects_4007"
+               name="%metatype.name.GoalConcernsObjects_4007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4007"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.GoalOperationalizedBy_4008"
+               name="%metatype.name.GoalOperationalizedBy_4008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.RefinementSupergoal_4009"
+               name="%metatype.name.RefinementSupergoal_4009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4009"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.RefinementSubgoals_4010"
+               name="%metatype.name.RefinementSubgoals_4010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerWishes_4018"
+               name="%metatype.name.ActorContainerWishes_4018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4018"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerConsultedFor_4012"
+               name="%metatype.name.ActorContainerConsultedFor_4012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4012"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerInformedFor_4013"
+               name="%metatype.name.ActorContainerInformedFor_4013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4013"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.HumanActorSupervisors_4014"
+               name="Actor's Supervisor is .."
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4014"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.HumanActorSupervisees_4015"
+               name="Actor's is Supervising .."
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4015"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerAssignments_4011"
+               name="%metatype.name.ActorContainerAssignments_4011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.RolePerformedBy_4017"
+               name="%metatype.name.RolePerformedBy_4017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4017"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.HumanActorPerforms_4016"
+               name="%metatype.name.HumanActorPerforms_4016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4016"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerMonitors_4019"
+               name="%metatype.name.ActorContainerMonitors_4019"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4019"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerControls_4020"
+               name="%metatype.name.ActorContainerControls_4020"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4020"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerAccountableFor_4021"
+               name="%metatype.name.ActorContainerAccountableFor_4021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4021"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerResponsibleFor_4022"
+               name="%metatype.name.ActorContainerResponsibleFor_4022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4022"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerPartOf_4023"
+               name="%metatype.name.ActorContainerPartOf_4023"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4023"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ActorContainerIncludes_4024"
+               name="%metatype.name.ActorContainerIncludes_4024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4024"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerResponsible_4025"
+               name="%metatype.name.OperationContainerResponsible_4025"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4025"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerInform_4027"
+               name="%metatype.name.OperationContainerInform_4027"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4027"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerConsult_4026"
+               name="%metatype.name.OperationContainerConsult_4026"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4026"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerAccountable_4028"
+               name="%metatype.name.OperationContainerAccountable_4028"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4028"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerPartOf_4029"
+               name="%metatype.name.OperationContainerPartOf_4029"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4029"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerIncludes_4030"
+               name="%metatype.name.OperationContainerIncludes_4030"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4030"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerOperationalizes_4031"
+               name="%metatype.name.OperationContainerOperationalizes_4031"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4031"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerOutput_4032"
+               name="%metatype.name.OperationContainerOutput_4032"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4032"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.OperationContainerInput_4033"
+               name="%metatype.name.OperationContainerInput_4033"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4033"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectConcernsGoals_4038"
+               name="%metatype.name.ObjectConcernsGoals_4038"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4038"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectMonitoredBy_4034"
+               name="%metatype.name.ObjectMonitoredBy_4034"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4034"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectInputFor_4036"
+               name="%metatype.name.ObjectInputFor_4036"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4036"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectOutputOf_4037"
+               name="%metatype.name.ObjectOutputOf_4037"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4037"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectControlledBy_4035"
+               name="%metatype.name.ObjectControlledBy_4035"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4035"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectAssociates_4039"
+               name="%metatype.name.ObjectAssociates_4039"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4039"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectAssociated_4040"
+               name="%metatype.name.ObjectAssociated_4040"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4040"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectSpecialization_4041"
+               name="%metatype.name.ObjectSpecialization_4041"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4041"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectSpecializedBy_4042"
+               name="%metatype.name.ObjectSpecializedBy_4042"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4042"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectPartOf_4043"
+               name="%metatype.name.ObjectPartOf_4043"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4043"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://chooseeditor/1.0">
+         <specializationType
+               id="CHOOSE.diagram.ObjectIncludes_4044"
+               name="%metatype.name.ObjectIncludes_4044"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4044"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="CHOOSE.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="CHOOSE.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="CHOOSE.diagram.TypeContext">
+         <elementType ref="CHOOSE.diagram.Diagram_1000"/>
+         <elementType ref="CHOOSE.diagram.Goal_2001"/>
+         <elementType ref="CHOOSE.diagram.Refinement_2002"/>
+         <elementType ref="CHOOSE.diagram.Actor_2003"/>
+         <elementType ref="CHOOSE.diagram.HumanActor_2004"/>
+         <elementType ref="CHOOSE.diagram.Role_2005"/>
+         <elementType ref="CHOOSE.diagram.SoftwareActor_2006"/>
+         <elementType ref="CHOOSE.diagram.Device_2007"/>
+         <elementType ref="CHOOSE.diagram.Operation_2008"/>
+         <elementType ref="CHOOSE.diagram.Process_2009"/>
+         <elementType ref="CHOOSE.diagram.Project_2010"/>
+         <elementType ref="CHOOSE.diagram.Object_2011"/>
+         <elementType ref="CHOOSE.diagram.GoalAssignedTo_4001"/>
+         <elementType ref="CHOOSE.diagram.GoalWishedBy_4002"/>
+         <elementType ref="CHOOSE.diagram.GoalOr_4003"/>
+         <elementType ref="CHOOSE.diagram.GoalAnd_4004"/>
+         <elementType ref="CHOOSE.diagram.GoalConflicted_4005"/>
+         <elementType ref="CHOOSE.diagram.GoalConflicts_4006"/>
+         <elementType ref="CHOOSE.diagram.GoalConcernsObjects_4007"/>
+         <elementType ref="CHOOSE.diagram.GoalOperationalizedBy_4008"/>
+         <elementType ref="CHOOSE.diagram.RefinementSupergoal_4009"/>
+         <elementType ref="CHOOSE.diagram.RefinementSubgoals_4010"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerWishes_4018"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerConsultedFor_4012"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerInformedFor_4013"/>
+         <elementType ref="CHOOSE.diagram.HumanActorSupervisors_4014"/>
+         <elementType ref="CHOOSE.diagram.HumanActorSupervisees_4015"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerAssignments_4011"/>
+         <elementType ref="CHOOSE.diagram.RolePerformedBy_4017"/>
+         <elementType ref="CHOOSE.diagram.HumanActorPerforms_4016"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerMonitors_4019"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerControls_4020"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerAccountableFor_4021"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerResponsibleFor_4022"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerPartOf_4023"/>
+         <elementType ref="CHOOSE.diagram.ActorContainerIncludes_4024"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerResponsible_4025"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerInform_4027"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerConsult_4026"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerAccountable_4028"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerPartOf_4029"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerIncludes_4030"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerOperationalizes_4031"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerOutput_4032"/>
+         <elementType ref="CHOOSE.diagram.OperationContainerInput_4033"/>
+         <elementType ref="CHOOSE.diagram.ObjectConcernsGoals_4038"/>
+         <elementType ref="CHOOSE.diagram.ObjectMonitoredBy_4034"/>
+         <elementType ref="CHOOSE.diagram.ObjectInputFor_4036"/>
+         <elementType ref="CHOOSE.diagram.ObjectOutputOf_4037"/>
+         <elementType ref="CHOOSE.diagram.ObjectControlledBy_4035"/>
+         <elementType ref="CHOOSE.diagram.ObjectAssociates_4039"/>
+         <elementType ref="CHOOSE.diagram.ObjectAssociated_4040"/>
+         <elementType ref="CHOOSE.diagram.ObjectSpecialization_4041"/>
+         <elementType ref="CHOOSE.diagram.ObjectSpecializedBy_4042"/>
+         <elementType ref="CHOOSE.diagram.ObjectPartOf_4043"/>
+         <elementType ref="CHOOSE.diagram.ObjectIncludes_4044"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="CHOOSE.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="CHOOSE.diagram"
+           properties="isURIEditorInput"
+           class="CHOOSE.diagram.part.ChooseEditorUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isShortcut">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="CHOOSE.diagram.ShortcutPropertyTester"
+           type="org.eclipse.gmf.runtime.notation.View"
+           namespace="CHOOSE.diagram"
+           properties="isShortcut"
+           class="CHOOSE.diagram.part.ChooseEditorShortcutPropertyTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="CHOOSE.diagram.resourceContent"/>
+			<contentExtension pattern="CHOOSE.diagram.domainResourceContent"/>
+            <contentExtension pattern="CHOOSE.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="CHOOSE.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="CHOOSE.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="CHOOSE.diagram.navigator.ChooseEditorNavigatorContentProvider" 
+            labelProvider="CHOOSE.diagram.navigator.ChooseEditorNavigatorLabelProvider"
+            icon="icons/obj16/ChooseeditorDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="choose_diagram"/>
+               </and>
+               <instanceof value="CHOOSE.diagram.navigator.ChooseEditorAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="CHOOSE.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="CHOOSE.diagram.navigator.ChooseEditorAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="CHOOSE.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="CHOOSE.diagram.navigatorSorter" 
+               class="CHOOSE.diagram.navigator.ChooseEditorNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="choose_diagram"/>
+                  </and>
+                  <instanceof value="CHOOSE.diagram.navigator.ChooseEditorAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="CHOOSE.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="CHOOSE.diagram.navigator.ChooseEditorDomainNavigatorContentProvider" 
+            labelProvider="CHOOSE.diagram.navigator.ChooseEditorDomainNavigatorLabelProvider"
+            icon="icons/obj16/ChooseeditorDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="choose"/>
+               </and>
+               <instanceof value="CHOOSE.diagram.navigator.ChooseEditorDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="CHOOSE.diagram.navigator.ChooseEditorDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="CHOOSE.diagram.navigatorActionProvider"
+            class="CHOOSE.diagram.navigator.ChooseEditorNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="CHOOSE.diagram.navigator.ChooseEditorAbstractNavigatorItem"/>
+           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
+           	      <test property="CHOOSE.diagram.isShortcut"/>
+           	   </adapt>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="CHOOSE.diagram.navigatorLinkHelper"
+            class="CHOOSE.diagram.navigator.ChooseEditorNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="CHOOSE.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="CHOOSE.diagram.navigator.ChooseEditorAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="CHOOSE.diagram.part.ChooseEditorDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="CHOOSE.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="CHOOSE.diagram.updateDiagram"
+         contextId="CHOOSE.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="CHOOSE.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="CHOOSE.diagram.part.ChooseEditorDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="CHOOSE.diagram.edit.parts.DiagramEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+         <command commandId="CHOOSE.diagram.CreateShortcutAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="CHOOSE.diagram.part.ChooseEditorDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="CHOOSE.diagram.edit.parts.DiagramEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="CHOOSE.diagram.part.ChooseEditorDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="CHOOSE.diagram.LoadResourceAction"
+         name="Load Diagram .."
+         categoryId="CHOOSE.diagram.part.ChooseEditorDiagramEditorID"
+         defaultHandler="CHOOSE.diagram.part.LoadResourceAction"/>
+      <command id="CHOOSE.diagram.CreateShortcutAction"
+         name="Implement Shortcut .."
+         categoryId="CHOOSE.diagram.part.ChooseEditorDiagramEditorID"
+         defaultHandler="CHOOSE.diagram.part.CreateShortcutAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="CHOOSE.diagram.providers.ChooseEditorMarkerNavigationProvider">
+         <MarkerType name="CHOOSE.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+<extension id="diagnostic" name="ChooseEditor Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>
+<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="CHOOSE.diagram.providers.ChooseEditorValidationDecoratorProvider">
+         <Priority name="Medium"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+
+   <!-- optionally, specify keybindings -->
+</plugin>
