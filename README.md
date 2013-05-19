@@ -1,4 +1,4 @@
-CHOOSE-Eclipse editor
+CHOOSE Source Code
 ======================
 
 CHOOSE Source Code 
